@@ -25,6 +25,7 @@ export const ProfileProvider = ({ children }) =>{
 
                userRef = database.ref(`/profiles/${authObj.uid}`);
 
+// whenever the above database data change then the bellow callbacke fired according to the data change in the database
                         userRef.on("value",snap=>{
                             const {name,createdAt} = snap.val();                           
 
