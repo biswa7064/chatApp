@@ -12,7 +12,7 @@ const ProfileContext = createContext();
 export const ProfileProvider = ({ children }) =>{
 
     const [profile,setProfile] = useState(null);
-    const [isLoading,setIsLoading] = useState(true)
+    const [isLoading,setIsLoading] = useState(true);
 
     useEffect(()=>{
 
@@ -26,36 +26,31 @@ export const ProfileProvider = ({ children }) =>{
                userRef = database.ref(`/profiles/${authObj.uid}`);
 
                         userRef.on("value",snap=>{
-                            const {name,createdAt} = snap.val();
-                            
+                            const {name,createdAt} = snap.val();                           
 
                             const data = {
                                 name,
                                 createdAt,
                                 uid:authObj.uid,
-                                email: authObj.email
+                                email: authObj.email,
                             };
             
                             setProfile(data);
-                            setIsLoading(false)
+                            setIsLoading(false);
                             
-                        });               
-
-            }else{
-
+                        }); 
+             }else{
                 // this when signedoff
-
                 if(userRef){
                     userRef.off();
-                }
-
+                 }
                 setProfile(null);
-                setIsLoading(false)
+                setIsLoading(false);
             }
         });
 
         return () =>{
-        authUnsubscribe()
+        authUnsubscribe();
         if(userRef){
             userRef.off();
         }
