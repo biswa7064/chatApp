@@ -12,7 +12,7 @@ const Dashboard = ({onSignOut}) => {
 
     const { profile } = useProfile();
 
-    const onSave = newData =>{console.log(newData)};
+    const onSave = async newData =>{console.log(newData)};
 
     return (
         <>

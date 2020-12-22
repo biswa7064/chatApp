@@ -25,7 +25,7 @@ const PrivateRoute = ({ children, ...routeProps}) => {
 
     // if we have no profile and no loading process then redirect to signin page
     if(!profile && !isLoading){
-        return <Redirect to = "/signin"/>;
+        return <Redirect to = "/signin" />;
     }
     return (
        <Route {...routeProps}>{children}</Route> 
