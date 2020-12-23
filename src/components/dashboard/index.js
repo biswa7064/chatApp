@@ -5,7 +5,7 @@ import { useProfile } from '../../context/profile.context'
 import EditableInput from './EditableInput';
 import { database } from '../../misc/firebase';
 import ProviderBlock from './ProviderBlock';
-
+import AvtarUploadBtn from './AvtarUploadBtn'
 
 
 
@@ -45,6 +45,7 @@ const Dashboard = ({onSignOut}) => {
              onSave = {onSave}
             label = {<h6 className = "md-2">Nickname</h6>}
             />
+        <AvtarUploadBtn />
         </Drawer.Body>
         <Drawer.Footer>
         <Button block color = "red" onClick = {onSignOut}>
