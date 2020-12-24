@@ -27,10 +27,11 @@ export const ProfileProvider = ({ children }) =>{
 
 // whenever the above database data change then the bellow callbacke fired according to the data change in the database
                         userRef.on("value",snap=>{
-                            const {name,createdAt} = snap.val();                           
+                            const {name,createdAt,avatar} = snap.val();                           
 
                             const data = {
                                 name,
+                                avatar,
                                 createdAt,
                                 uid:authObj.uid,
                                 email: authObj.email,
