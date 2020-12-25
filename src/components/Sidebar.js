@@ -1,6 +1,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react'
 import DashboardToggle from './dashboard/DashboardToggle'
+import CreateRoomModal from './CreateRoomModal'
 
 
 
@@ -9,6 +10,7 @@ const Sidebar = () => {
         <div className = "h-100 pt-2">
             <div>
                 <DashboardToggle />
+                <CreateRoomModal/>
             </div>
             
         </div>
