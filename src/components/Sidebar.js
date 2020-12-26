@@ -18,7 +18,7 @@ const Sidebar = () => {
 
     useEffect(()=>{
         if (topsidebarRef.current){
-        setHeight(topsidebarRef.current.scrollHeight)
+        setHeight(topsidebarRef.current.scrollHeight )
         }
     },[topsidebarRef]); 
 
@@ -30,7 +30,7 @@ const Sidebar = () => {
                 <CreateRoomModal/>
                 <Divider>Join conversation</Divider>
             </div>
-            <ChatRoomList aboveElHeight = {height} />
+            <ChatRoomList aboveElHeight = {height}  />
         </div>
     )
 }
