@@ -27,15 +27,14 @@ const ChatRoomList = ({aboveElHeight}) => {
         }}
         activeKey = {location.pathname}
         >
-            { !rooms && (
-             
+            { !rooms && (             
              <Loader center vertical content = "Loading" speed = "slow" size = "md"/>
             )}
-             {rooms && rooms.length>0 && rooms.map(room=>(
-                <Nav.Item 
+             {rooms && rooms.length > 0 && rooms.map(room=>(
+                <Nav.Item  
+                key = {room.id}
                 componentClass = {Link}
-                 to={`/chat/${room.id}`} 
-                 key = {room.id}
+                 to={`/chat/${room.id}`}                 
                  eventKey = {`/chat/${room.id}`}
                  >
                  <RoomItem room = {room}/>

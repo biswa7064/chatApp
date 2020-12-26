@@ -16,7 +16,7 @@ export const RoomsProvider = ({children})=>{
         const roomListRef = database.ref('rooms');
 
         roomListRef.on('value', (snap)=>{
-           const data = transformToArrWithId(snap);
+           const data = transformToArrWithId(snap.val());
            setRooms(data);
         });
 
@@ -25,7 +25,9 @@ export const RoomsProvider = ({children})=>{
         };
     },[]);
 
-    return <RoomsContext.Provider value = {rooms}>{children}</RoomsContext.Provider>
+    return (
+    <RoomsContext.Provider value = {rooms}>{children}</RoomsContext.Provider>
+    );
 };
 
 

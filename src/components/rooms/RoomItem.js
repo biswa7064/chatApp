@@ -4,10 +4,10 @@ import TimeAgo from 'timeago-react';
 
 
 
-const RoomItem = ({room}) => {
+const RoomItem = ({ room }) => {
 
 
-    const {createdAt, name} = room;
+    const { createdAt, name } = room;
 
 
 
