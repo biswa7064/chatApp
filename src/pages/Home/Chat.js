@@ -4,7 +4,7 @@ import { useParams } from 'react-router'
 import { Loader } from 'rsuite'
 
 import Messages from '../../components/chat-window/messages'
-import { ChatBottom } from '../../components/chat-window/bottom'
+import ChatBottom  from '../../components/chat-window/bottom'
 import { useRooms } from '../../context/rooms.context'
 import { CurrentRoomProvider } from '../../context/current.room.context'
 import ChatTop from '../../components/chat-window/top'
