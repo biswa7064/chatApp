@@ -6,6 +6,7 @@ import EditableInput from './EditableInput';
 import { database } from '../../misc/firebase';
 import ProviderBlock from './ProviderBlock';
 import AvtarUploadBtn from './AvtarUploadBtn'
+import { getUserUpdate } from '../../misc/helpers';
 
 
 
@@ -16,13 +17,17 @@ const Dashboard = ({onSignOut}) => {
 
 
     // set nickname and also name changed in firebase database
-    const onSave = async newData =>{
-        const userNickname = database
-        .ref(`/profiles/${profile.uid}`)
-        .child(`name`);
+    const onSave = async newData =>{        
 
-        try{
-            await userNickname.set(newData);
+        try{ 
+            const updates = await getUserUpdate(
+               profile.uid,
+               'name',
+               newData,
+               database
+           ); 
+
+           await database.ref().update(updates);
 
             Alert.success(`Nickname has been changed.`,4000);
         }catch(err){
