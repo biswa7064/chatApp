@@ -28,7 +28,7 @@ const Top = () => {
                 className = {isMobile? 
                     'd-inline-block p-0 mr-2 text-blue link-unstyled'
                 : 'd-none'}  />
-            <span className = "text-disappear">hello{name}</span>            
+            <span className = "text-disappear">{name}</span>            
             </h4> 
 
             <ButtonToolbar className = "ws-nowrap" >todo</ButtonToolbar>           
