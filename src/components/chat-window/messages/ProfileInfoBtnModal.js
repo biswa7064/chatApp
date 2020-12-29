@@ -9,7 +9,7 @@ import ProfileAvatar from '../../dashboard/ProfileAvatar';
 
 
 
-const ProfileInfoBtnModal = ({profile, ...btnProps}) => {
+const ProfileInfoBtnModal = ({profile,children, ...btnProps}) => {
 
 
     const {isOpen,close,open} = useModalState();
@@ -44,6 +44,7 @@ const ProfileInfoBtnModal = ({profile, ...btnProps}) => {
 
                 </Modal.Body>
                 <Modal.Footer>
+                    {children}
                     <Button block onClick={close}>
                         Close
                     </Button>
