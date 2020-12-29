@@ -39,6 +39,7 @@ export const ProfileProvider = ({ children }) =>{
 
             if(authObj){
 // check for datbase for signedin user or not signedin user
+               
                 userStatusRef = database.ref(`/status/${authObj.uid}`);
                userRef = database.ref(`/profiles/${authObj.uid}`);
 

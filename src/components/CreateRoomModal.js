@@ -5,7 +5,7 @@ import React, { useState, useCallback, useRef } from 'react'
 import { Button, Icon, Modal, Form, FormGroup, ControlLabel, FormControl, Schema, Alert } from 'rsuite'
 import firebase from 'firebase/app'
 import { useModalState } from '../misc/custom-hooks'
-import { database } from '../misc/firebase';
+import { database, auth } from '../misc/firebase';
 
 
 
@@ -54,7 +54,10 @@ const CreateRoomModal = () => {
 
         const newRoomdata = {
             ...formValue,
-            createdAt: firebase.database.ServerValue.TIMESTAMP
+            createdAt: firebase.database.ServerValue.TIMESTAMP,
+            admins:{
+                [auth.currentUser.uid]:true,
+            }
         }
 
         try{
