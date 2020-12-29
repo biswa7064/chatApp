@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useCurrentRoom } from '../../../context/current.room.context'
 import { useMediaQuery } from '../../../misc/custom-hooks';
 import RoomInfoBtnModal from './RoomInfoBtnModal';
+import EditRoomDrawer from './EditRoomDrawer';
 
 
 
@@ -31,7 +32,9 @@ const Top = () => {
             <span className = "text-disappear">{name}</span>            
             </h4> 
 
-            <ButtonToolbar className = "ws-nowrap" >todo</ButtonToolbar>           
+            <ButtonToolbar className = "ws-nowrap" >
+                <EditRoomDrawer/>
+                </ButtonToolbar>           
         </div>
 
         <div className = "d-flex justify-content-between align-items-center">
