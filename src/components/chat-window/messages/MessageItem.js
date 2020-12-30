@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 /* eslint-disable arrow-body-style */
 import React, { memo } from 'react'
 import TimeAgo from 'timeago-react'
@@ -8,6 +9,7 @@ import PresenceDot from '../../rooms/PresenceDot';
 import { useCurrentRoom } from '../../../context/current.room.context';
 import { auth } from '../../../misc/firebase';
 import { useHover } from '../../../misc/custom-hooks';
+import IconBtnControl from './IconBtnControl';
 
 
 
@@ -47,6 +49,14 @@ const MessageItem = ({message, handleAdmin}) => {
                 <TimeAgo
                 datetime={createdAt}
                 className = "font-normal text-black-45 ml-2" />
+
+                <IconBtnControl
+                {...(true?{color:'red'}:{})}
+                isVisible
+                iconName = "heart"
+                tooltip ="Like thsi message"
+                onClick = {()=>{}}
+                badgeContent = {5}/>
             </div>
             <div>
                 <span className = "word-breal-all">{text}</span>
