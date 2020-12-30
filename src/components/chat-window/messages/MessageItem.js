@@ -13,7 +13,7 @@ import IconBtnControl from './IconBtnControl';
 
 
 
-const MessageItem = ({message, handleAdmin, handleLike}) => {
+const MessageItem = ({message, handleAdmin, handleLike, handleDelete}) => {
 
     const {author, createdAt, text, likes, likeCount} = message;
 
@@ -62,6 +62,16 @@ const MessageItem = ({message, handleAdmin, handleLike}) => {
                 tooltip ="Like thsi message"
                 onClick = {()=>{handleLike(message.id)}}
                 badgeContent = {likeCount}/>
+
+                {isAuthor && (
+                    <IconBtnControl                    
+                    isVisible ={isShownOnMobile}
+                    iconName = "close"
+                    tooltip ="Delete thsi message"
+                    onClick = {()=>{handleDelete(message.id)}}
+                    />
+
+                )}
             </div>
             <div>
                 <span className = "word-breal-all">{text}</span>
