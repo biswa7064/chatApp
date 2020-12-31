@@ -31,6 +31,7 @@ const RoomItem = ({ room }) => {
 
                    <div className = "text-disappear ml-2">
                         <div className = "italic">{lastMessage.author.name}</div>
+                        {/* Adding functionality for last message  */}
                         <sapn>{lastMessage.text || lastMessage.file.name}</sapn>
                    </div>
                    </>:
