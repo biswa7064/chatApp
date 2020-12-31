@@ -1,6 +1,7 @@
 {
   "rulesFile": "database.rules.json",
   "hosting": {
+    "predeploy": ["npm run build"],
     "public": "build",
     "ignore": [
       "firebase.json",
