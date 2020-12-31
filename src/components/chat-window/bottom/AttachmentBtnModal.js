@@ -30,9 +30,9 @@ const AttachmentBtnModal = ({afterUpload}) => {
             const uploadPromises = fileList.map(file=>{
                 return storage
                 .ref(`/chat/${chatId}`)
-                .child(Date.new()+file.name)
+                .child(Date.now()+file.name)
                 .put(file.blobFile,{
-                    cacheControl: `public, max-age-${3600*24*3}`,
+                    cacheControl: `public, max-age=${3600*24*3}`,
                 });
             });
 
@@ -41,8 +41,8 @@ const AttachmentBtnModal = ({afterUpload}) => {
             const shapePromise = uploadSnapshot.map(async snap =>{
                 return {
                     contentType: snap.metadata.contentType,
-                    name: snap.metadata.name,
-                    url: await snap.ref.getDownloadUrl()
+                    name : snap.metadata.name,
+                    url : await snap.ref.getDownloadURL(),
                 }
             })
 
@@ -78,11 +78,12 @@ const AttachmentBtnModal = ({afterUpload}) => {
                 onChange={onChange}
                 multiple
                 listType = "picture-text"
+                className="w-100"
                 disabled={isLoading}
                 />
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button block disabled={isLoading} onClick={onUpload} >
+                    <Button block disabled={isLoading} onClick={onUpload}>
                         Send to chat
                     </Button >
                     <div className="text-right mt-2">
