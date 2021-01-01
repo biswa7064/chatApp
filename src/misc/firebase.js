@@ -1,9 +1,11 @@
+/* eslint-disable no-console */
 import firebase from 'firebase'
 
 import 'firebase/app'
 import 'firebase/auth'
 import 'firebase/database'
 import 'firebase/storage'
+import 'firebase/messaging'
 
 
 
@@ -22,3 +24,16 @@ const config = {
   export const auth = app.auth();
   export const database = app.database();
   export const storage = app.storage();
+
+  export const messaging = firebase
+                            .messaging
+                              .isSupported() ? app.messaging():null;
+    if(messaging){
+      messaging.usePublicVapidKey(
+        'BEWr0rClcQWVC5lFEtWT4KJfK-NpQTneoezpnyMKKDzq3ruPnoJ_KvEzYkrS1XsyIoda3xkuZi5K9EpbdlBpMOA'
+      );
+      messaging.onMessage(data=>{
+        console.log(data);
+      })
+    }
+                              
